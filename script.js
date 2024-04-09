@@ -4,6 +4,7 @@ async function getData() {
   )
     .then((res) => res.json())
     .then((json) => {
+      console.log(json);
       displayGraph(json);
     });
 }
@@ -76,6 +77,7 @@ function displayGraph(data) {
     .attr("cy", (d) => y(d.Seconds * 1000))
     .attr("r", "10")
     .attr("class", "dot")
+    .attr('fill', (d) => d.Doping === "" ? "#329ea8" : "#c29c2d")
     .on('mouseover', (e) => displayTooltip(e))
     .on('mouseout', () => hideTooltip());
 
